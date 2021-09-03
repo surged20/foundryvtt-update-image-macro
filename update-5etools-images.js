@@ -8,7 +8,7 @@
  * New UI based on GeekDad's Compendium to Table Script
  */
 
-const VERSION = "0.2.0";
+const VERSION = "0.2.1";
 
 function getScenes() {
   let scenes = [];
