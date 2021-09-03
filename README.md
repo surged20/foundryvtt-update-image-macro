@@ -8,6 +8,7 @@ This script is used convert 5eTools site image urls to either a local image path
 
 ## Install
 
+![Macro Directory](https://raw.githubusercontent.com/wiki/surged20/foundryvtt-update-image-macro/images/macro-directory.png)
 1. Open the **Macro Directory**
 2. Click **Create Macro**
 3. Select **script** macro
@@ -17,6 +18,7 @@ This script is used convert 5eTools site image urls to either a local image path
 
 ## Use
 
+![Script UI](https://raw.githubusercontent.com/wiki/surged20/foundryvtt-update-image-macro/images/update-5etools-images-dialog.png)
 1. **Back up your world before use!** Anything can happen when mucking with the db.
 2. Execute the **Update 5eTools Images** macro.
 3. The default settings have everything selected and configured to translate from 5eTools URLs to local image data. Note that the scene selector is multi-select enabled and all scenes are selected by default.
