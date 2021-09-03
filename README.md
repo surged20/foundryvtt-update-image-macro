@@ -22,3 +22,8 @@ This script is used convert 5eTools site image urls to either a local image path
 3. The default settings have everything selected and configured to translate from 5eTools URLs to local image data. Note that the scene selector is multi-select enabled and all scenes are selected by default.
 4. Click **Update** to start the update.
 5. If *Enable Logging* is checked, a log of the updated images will be written to the console.
+
+## Credits
+
+* **adorablecoin#5262** for providing code and suggestions for some new features.
+* **Maravedis#0468** for fixes and help debugging.
