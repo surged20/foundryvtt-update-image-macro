@@ -1,6 +1,8 @@
 # Foundry VTT Update 5eTools Images macro
 
-This script is used convert 5eTools site image urls to either a local image path or another image url. It will convert:
+**STOP! If you are planning to convert your world to use local images then you must install local images within your plutonium module directory/folder before using this macro. I recommend following https://gist.github.com/Maravedis/dcf8bfa00058a6a6446dfef767d1af7f for this process which refers to this macro on Step V.**
+
+This script is used to convert 5eTools site image urls to either a local image path or another image url. It will convert:
 1. World actor portrait images
 2. World actor prototype token images
 3. World item images
