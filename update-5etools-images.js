@@ -25,16 +25,17 @@ function getScenes() {
   return scenes;
 }
 
+
 async function doActors(replaceUrl, newUrl, logging) {
   for (const a of game.actors) {
     let data = {}
-    if (a.data.img.startsWith(replaceUrl)) {
+    if (a.data?.img.startsWith(replaceUrl)) {
       const actorImg = a.data.img.replaceAll(replaceUrl, newUrl);
       data.img = actorImg;
       if (logging) console.log("Actor image: " + actorImg);
     }
 
-    if (a.data.token.img.startsWith(replaceUrl)) {
+    if (a.data.token?.img.startsWith(replaceUrl)) {
       const tokenImg = a.data.token.img.replaceAll(replaceUrl, newUrl);
       data["token.img"] = tokenImg;
       if (logging) console.log("Actor prototype token: " + tokenImg);
@@ -47,7 +48,7 @@ async function doActors(replaceUrl, newUrl, logging) {
 
 async function doItems(replaceUrl, newUrl, logging) {
   for (const i of game.items) {
-    if (i.data.img.startsWith(replaceUrl)) {
+    if (i.data?.img.startsWith(replaceUrl)) {
       const img = i.data.img.replaceAll(replaceUrl, newUrl);
       await i.update({"img": img});
       if (logging) console.log("Item image: " + img);
@@ -59,7 +60,7 @@ async function doScenes(updateScenes, replaceUrl, newUrl, logging) {
   for (const sceneKey of updateScenes) {
     const scene = game.scenes.get(sceneKey);
     for (const td of scene.tokens) {
-      if (td.data.img.startsWith(replaceUrl)) {
+      if (td.data?.img.startsWith(replaceUrl)) {
         const img = td.data.img.replaceAll(replaceUrl, newUrl);
         if (logging) console.log("Scene token image: " + img);
         await td.update({"img": img});
