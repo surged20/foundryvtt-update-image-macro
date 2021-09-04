@@ -8,7 +8,7 @@
  * New UI based on GeekDad's Compendium to Table Script
  */
 
-const VERSION = "0.2.1";
+const VERSION = "0.3.0";
 
 function getScenes() {
   let scenes = [];
@@ -77,15 +77,31 @@ async function doUpdate(updateActors, updateItems, updateScenes, replaceUrl, new
   console.log('Update 5etools Images: finished');
 }
 
-let content = `<form><div style="display: inline-block; width: 100%; margin-bottom: 10px">
+let content = `<script>
+    function toggleField(hideObj,showObj){
+      hideObj.disabled=true;
+      hideObj.style.display='none';
+      showObj.disabled=false;
+      showObj.style.display='inline';
+      showObj.focus();
+    }
+  </script>
+  <form><div style="display: inline-block; width: 100%; margin-bottom: 10px">
   <label for="logging">Enable logging</label>
   <input type="checkbox"  id="logging" name="logging" checked><br/>
   <hr>
-  <p>Default converts 5e.tools image URLs to use the Plutonium <strong>Use Local Images</strong> local path.</p>
+  <p>Default converts 5e.tools image URLs to use the current temporary mirror.</p>
   <label for="replaceUrl">URL to be replaced</label>
-  <input type="text"  id="replaceUrl" name="replaceUrl" value="https://5e.tools"><br/>
+  <select name="replaceUrl" id="replaceUrl" onchange="if(this.options[this.selectedIndex].value=='customUrl'){toggleField(this,this.nextSibling); this.selectedIndex='1';}">
+    <option>https://5e.tools</option>
+    <option value="customUrl">[type a custom URL]</option>
+  </select><input name="newUrl" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}"><br/>
   <label for="newUrl">New URL or local path</label>
-  <input type="text"  id="newUrl" name="newUrl" value="modules/plutonium"><br/>
+  <select name="newUrl" id="newUrl" onchange="if(this.options[this.selectedIndex].value=='customUrl'){toggleField(this,this.nextSibling); this.selectedIndex='2';}">
+    <option>https://5e.tools-mirror-1.github.io</option>
+    <option>modules/plutonium</option>
+    <option value="customUrl">[type a custom URL]</option>
+  </select><input name="newUrl" style="display:none;" disabled="disabled" onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
   <hr>
   <label for="updateActors">Update world actor images</label>
   <input type="checkbox"  id="updateActors" name="updateActors" checked><br/>
@@ -112,8 +128,12 @@ new Dialog({
         let updateActors = html.find("input[name='updateActors']:checked").val();
         let updateItems = html.find("input[name='updateItems']:checked").val();
         let updateScenes = html.find("select[name='updateScenes']").val();
-        let replaceUrl = html.find("input[name='replaceUrl']").val();
-        let newUrl = html.find("input[name='newUrl']").val();
+        let replaceUrl = html.find("select[name='replaceUrl']").val();
+        if (replaceUrl === "customUrl")
+          replaceUrl = html.find("input[name='newUrl']").val();
+        let newUrl = html.find("select[name='newUrl']").val();
+        if (newUrl === "customUrl")
+          newUrl = html.find("input[name='newUrl']").val();
         doUpdate(updateActors, updateItems, updateScenes, replaceUrl, newUrl, logging);
       }
     },

@@ -1,8 +1,8 @@
 # Foundry VTT Update 5eTools Images macro
 
-**STOP! If you are planning to convert your world to use local images then you must install local images within your plutonium module directory/folder before using this macro. I recommend following https://gist.github.com/Maravedis/dcf8bfa00058a6a6446dfef767d1af7f for this process which refers to this macro on Step V.**
+**STOP! If you are planning to convert your world to use local images then you must install local images within your plutonium module directory/folder before using this macro. Follow the guide at https://github.com/Maravedis/plutonium-issues-doc**
 
-This script is used to convert 5eTools site image urls to either a local image path or another image url. It will convert:
+This script is used to convert 5eTools site image urls to 5eTools mirror site url or a local image path. It will convert:
 1. World actor portrait images
 2. World actor prototype token images
 3. World item images
@@ -23,7 +23,7 @@ This script is used to convert 5eTools site image urls to either a local image p
 ![Script UI](https://raw.githubusercontent.com/wiki/surged20/foundryvtt-update-image-macro/images/update-5etools-images-dialog.png)
 1. **Back up your world before use!** Anything can happen when mucking with the db.
 2. Execute the **Update 5eTools Images** macro.
-3. The default settings have everything selected and configured to translate from 5eTools URLs to local image data. Note that the scene selector is multi-select enabled and all scenes are selected by default.
+3. The default settings have everything selected and configured to translate from the 5e.tools URL to the current 5eTools mirror URL. Note that the scene selector is multi-select enabled and all scenes are selected by default.
 4. Click **Update** to start the update.
 5. If *Enable Logging* is checked, a log of the updated images will be written to the console.
 
