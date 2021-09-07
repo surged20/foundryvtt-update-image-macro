@@ -8,7 +8,7 @@
  * New UI based on GeekDad's Compendium to Table Script
  */
 
-const VERSION = "0.3.1";
+const VERSION = "0.4.0";
 
 function getScenes() {
   let scenes = [];
@@ -60,11 +60,21 @@ async function doScenes(updateScenes, replaceUrl, newUrl, logging) {
   for (const sceneKey of updateScenes) {
     const scene = game.scenes.get(sceneKey);
     for (const td of scene.tokens) {
+      let data = {}
       if (td.data?.img?.startsWith(replaceUrl)) {
-        const img = td.data.img.replace(replaceUrl, newUrl);
-        if (logging) console.log("Scene token image: " + img);
-        await td.update({"img": img});
+        const tokenImg = td.data.img.replace(replaceUrl, newUrl);
+        data.img = tokenImg;
+        if (logging) console.log("Scene token image: " + tokenImg);
       }
+      if (!td.data.actorLink) {
+        if (td.data.actorData?.img?.startsWith(replaceUrl)) {
+          const actorImg = td.data.actorData.img.replace(replaceUrl, newUrl);
+          data["actorData.img"] = actorImg;
+          if (logging) console.log("Scene token unlinked actor image: " + actorImg);
+        }
+      }
+      if (Object.keys(data).length != 0)
+        await td.update(data);
     }
   }
 }

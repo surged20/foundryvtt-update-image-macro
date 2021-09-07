@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.0] - 2021-09-07
+
+### Added
+
+- Support for updating synthetic actor images in an unlinked token
+
 ## [0.3.1] - 2021-09-04
 
 ### Added
@@ -28,6 +34,7 @@
 
 - Add Update 5eTools Images macro with UI
 
+[0.4.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.3.1...0.4.0
 [0.3.1]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.2.1...0.3.0
 [0.2.1]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.2.0...0.2.1
