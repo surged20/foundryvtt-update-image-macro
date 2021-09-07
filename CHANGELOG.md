@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.3.1] - 2021-09-04
+
+### Added
+
+- Additional URL presets from adorablecoin
+
+### Fixed
+
+- Bugs in new URL dropdowns and replacement from adorablecoin.
+
 ## [0.3.0] - 2021-09-04
 
 ### Changed
@@ -18,6 +28,7 @@
 
 - Add Update 5eTools Images macro with UI
 
+[0.3.1]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.2.1...0.3.0
 [0.2.1]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/surged20/foundryvtt-update-image-macro/releases/tag/0.2.0

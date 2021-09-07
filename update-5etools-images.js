@@ -4,11 +4,11 @@
  * Script performs selectable updates of image urls in world actors, world items, and scene tokens
  *
  * Authored by Surge#5715
- * Incorporated item support, flexible update urls, and numerous refactoring ideas from adorablecoin#5262
+ * Incorporated item support, flexible update urls, bug fixes, and numerous refactoring ideas from adorablecoin#5262
  * New UI based on GeekDad's Compendium to Table Script
  */
 
-const VERSION = "0.3.0";
+const VERSION = "0.3.1";
 
 function getScenes() {
   let scenes = [];
