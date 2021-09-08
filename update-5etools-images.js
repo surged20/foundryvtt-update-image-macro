@@ -8,7 +8,7 @@
  * New UI based on GeekDad's Compendium to Table Script
  */
 
-const VERSION = "0.4.0";
+const VERSION = "0.5.0";
 
 function getScenes() {
   let scenes = [];
@@ -27,6 +27,7 @@ function getScenes() {
 
 
 async function doActors(replaceUrl, newUrl, logging) {
+  let updates = [];
   for (const a of game.actors) {
     let data = {}
     if (a.data?.img?.startsWith(replaceUrl)) {
@@ -41,24 +42,30 @@ async function doActors(replaceUrl, newUrl, logging) {
       if (logging) console.log("Actor prototype token: " + tokenImg);
     }
 
-    if (Object.keys(data).length != 0)
-      await a.update(data);
+    if (Object.keys(data).length != 0) {
+      data["_id"] = a.data.document.data._id;
+      updates.push(data);
+    }
   }
+  await Actor.updateDocuments(updates);
 }
 
 async function doItems(replaceUrl, newUrl, logging) {
+  let updates = [];
   for (const i of game.items) {
     if (i.data?.img?.startsWith(replaceUrl)) {
       const img = i.data.img.replace(replaceUrl, newUrl);
-      await i.update({"img": img});
+      updates.push({"_id": i.data.document.data._id, "img": img});
       if (logging) console.log("Item image: " + img);
     }
   }
+  await Item.updateDocuments(updates);
 }
 
 async function doScenes(updateScenes, replaceUrl, newUrl, logging) {
   for (const sceneKey of updateScenes) {
     const scene = game.scenes.get(sceneKey);
+    let updates = [];
     for (const td of scene.tokens) {
       let data = {}
       if (td.data?.img?.startsWith(replaceUrl)) {
@@ -73,9 +80,12 @@ async function doScenes(updateScenes, replaceUrl, newUrl, logging) {
           if (logging) console.log("Scene token unlinked actor image: " + actorImg);
         }
       }
-      if (Object.keys(data).length != 0)
-        await td.update(data);
+      if (Object.keys(data).length != 0) {
+        data["_id"] = td.data._id;
+        updates.push(data)
+      }
     }
+    await TokenDocument.updateDocuments(updates, {parent: scene});
   }
 }
 
