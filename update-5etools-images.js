@@ -114,8 +114,9 @@ let content = `<script>
   <label for="logging">Enable logging</label>
   <input type="checkbox"  id="logging" name="logging" checked><br/>
   <hr>
-  <p>Default converts 5e.tools image URLs to use the current temporary mirror.</p>
-  <label for="replaceUrl">URL to be replaced</label>
+  <p>The default settings will convert 5e.tools image URLs to use the temporary mirror.</p>
+  <p>Set <em>New URL or local path</em> to <strong>modules/plutonium/</strong> to convert to local data images.</p>
+  <label for="replaceUrl">Current URL or local path</label>
   <select name="replaceUrl" id="replaceUrl" onchange="if(this.options[this.selectedIndex].value=='customUrl'){toggleField(this,this.nextSibling); this.selectedIndex=this.options.length-1;}">
     <option>https://5e.tools/</option>
     <option>https://5etools-mirror-1.github.io/</option>

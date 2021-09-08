@@ -22,7 +22,7 @@ This script is used to convert 5eTools site image urls to 5eTools mirror site ur
 ![Script UI](https://raw.githubusercontent.com/wiki/surged20/foundryvtt-update-image-macro/images/update-5etools-images-dialog.png)
 1. **Back up your world before use!** Anything can happen when mucking with the db.
 2. Execute the **Update 5eTools Images** macro.
-3. The default settings have everything selected and configured to translate from the 5e.tools URL to the current 5eTools mirror URL. Note that the scene selector is multi-select enabled and all scenes are selected by default.
+3. The default settings have everything selected and configured to translate from the 5e.tools URL to the current 5eTools mirror URL. If you would like to convert 5e.tools URLs to use local data images, then select **modules/plutonium/** from the *New URL or local path* selector. Note that the scene selector is multi-select enabled and all scenes are selected by default.
 4. Click **Update** to start the update.
 5. If *Enable Logging* is checked, a log of the updated images will be written to the console.
 
