@@ -100,10 +100,12 @@ async function doUpdate(updateActors, updateItems, updateScenes, replaceUrl, new
   if(replaceUrl == newUrl) { console.log('urls specified are the same; updating skipped'); return; }
 
   console.log('Update 5etools Images: started');
+  const t0 = performance.now();
   if (updateActors) await doActors(replaceUrl, newUrl, logging);
   if (updateItems) await doItems(replaceUrl, newUrl, logging);
   if (updateScenes) await doScenes(updateScenes, replaceUrl, newUrl, logging);
-  console.log('Update 5etools Images: finished');
+  const t1 = performance.now();
+  console.log('Update 5etools Images: finished in ' + (t1-t0) + ' ms');
 }
 
 let content = `<script>
