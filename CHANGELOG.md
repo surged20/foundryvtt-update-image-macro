@@ -8,7 +8,7 @@
 
 ### Changed
 
-- Optimize db updates with updateDocuments(). Total db operations are now 2 + <number of scenes>.
+- Optimize db updates with updateDocuments(). Total db operations are now 2 + numberOfScenes.
 
 ## [0.4.0] - 2021-09-07
 
