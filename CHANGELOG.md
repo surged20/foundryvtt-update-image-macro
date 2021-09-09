@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0] - 2021-09-09
+
+### Added
+
+- Output processing time
+- Update journal images and content
+
 ## [0.6.0] - 2021-09-09
 
 ### Added
@@ -50,6 +57,7 @@
 
 - Add Update 5eTools Images macro with UI
 
+[0.7.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.6.0...0.7.0
 [0.6.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.3.1...0.4.0

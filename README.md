@@ -5,7 +5,8 @@
 This script is used to convert 5eTools site image urls to 5eTools mirror site url or a local image path. It will convert:
 1. World actor portrait images and prototype token images
 2. World item images
-3. Scene background images, token images and synthetic actor images in an unlinked token
+3. World journal images and content
+4. Scene background images, token images and synthetic actor images in an unlinked token
 
 ## Install
 
