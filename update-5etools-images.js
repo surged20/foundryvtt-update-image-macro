@@ -8,7 +8,7 @@
  * New UI based on GeekDad's Compendium to Table Script
  */
 
-const VERSION = "0.5.0";
+const VERSION = "0.6.0";
 
 function getScenes() {
   let scenes = [];
@@ -65,6 +65,11 @@ async function doItems(replaceUrl, newUrl, logging) {
 async function doScenes(updateScenes, replaceUrl, newUrl, logging) {
   for (const sceneKey of updateScenes) {
     const scene = game.scenes.get(sceneKey);
+    if (scene.data?.img?.startsWith(replaceUrl)) {
+      const sceneImg = scene.data.img.replace(replaceUrl, newUrl);
+      await scene.update({img: sceneImg});
+      if (logging) console.log("Scene background image: " + sceneImg);
+    }
     let updates = [];
     for (const td of scene.tokens) {
       let data = {}

@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.0] - 2021-09-09
+
+### Added
+
+- Handle scene background images
+
 ## [0.5.0] - 2021-09-09
 
 ### Added
@@ -44,6 +50,7 @@
 
 - Add Update 5eTools Images macro with UI
 
+[0.6.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.3.1...0.4.0
 [0.3.1]: https://github.com/surged20/foundryvtt-update-image-macro/compare/0.3.0...0.3.1
