@@ -2,13 +2,15 @@
  * Update 5eTools Images
  *
  * Script performs selectable updates of image urls in world actors, world items, and scene tokens
+ * Only Foundry 0.8.x is supported
  *
  * Authored by Surge#5715
  * Incorporated item support, flexible update urls, bug fixes, and numerous refactoring ideas from adorablecoin#5262
  * New UI based on GeekDad's Compendium to Table Script
  */
 
-const VERSION = "0.7.0";
+const MACRO = "Update 5eTools Images"
+const VERSION = "0.7.1";
 
 function getScenes() {
   let scenes = [];
@@ -119,14 +121,19 @@ async function doUpdate(updateActors, updateItems, updateJournals, updateScenes,
   if(newUrl.endsWith('/') == false) { console.log("appending newUrl with '/' for safety"); newUrl += '/'; }
   if(replaceUrl == newUrl) { console.log('urls specified are the same; updating skipped'); return; }
 
-  console.log('Update 5etools Images: started');
+  console.log(MACRO + ': started');
   const t0 = performance.now();
   if (updateActors) await doActors(replaceUrl, newUrl, logging);
   if (updateItems) await doItems(replaceUrl, newUrl, logging);
   if (updateJournals) await doJournals(replaceUrl, newUrl, logging);
   if (updateScenes) await doScenes(updateScenes, replaceUrl, newUrl, logging);
   const t1 = performance.now();
-  console.log('Update 5etools Images: finished in ' + (t1-t0) + ' ms');
+  console.log(MACRO +': finished in ' + (t1-t0) + ' ms');
+}
+
+if (!game.data.version.startsWith("0.8.")) {
+  ui.notifications.error(MACRO + " only supports Foundry VTT 0.8.x");
+  return;
 }
 
 let content = `<script>
@@ -174,7 +181,7 @@ content += `</select><br>
 </div><br /></form>`
 
 new Dialog({
-  title: `Update 5eTools Images v${VERSION}`,
+  title: `${MACRO} v${VERSION}`,
   content: content,
   buttons: {
     update: {

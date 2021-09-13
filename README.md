@@ -1,5 +1,7 @@
 # Foundry VTT Update 5eTools Images macro
 
+This macro is only for **Foundry VTT 0.8.x**.
+
 **STOP! If you are planning to convert your world to use local images then you must install local images within your plutonium module directory/folder before using this macro. Follow the guide at https://github.com/Maravedis/plutonium-issues-doc**
 
 This script is used to convert 5eTools site image urls to 5eTools mirror site url or a local image path. It will convert:
